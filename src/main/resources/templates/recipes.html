@@ -6,35 +6,41 @@
     <span th:replace="~{homePage::bootstrapAndCssImports}"></span>
 
 </head>
-<body>
+<body class="p-3 mb-2 bg-black text-white">
 <header>
     <span th:replace="~{homePage::header}"></span>
-
+    <div class="text-success">
+        <hr>
+    </div>
+    <a th:href="@{/}" class="mt-3 mb-3 d-flex justify-content-end text-uppercase fw-medium text-warning ">Homepage</a>
+    <div class="text-success">
+        <hr>
+    </div>
 </header>
 <main>
 
-    <table class="table table-striped" th:if="${!recipes.isEmpty()}">
-        <thead>
+    <table class="table table-striped " th:if="${!recipes.isEmpty()}">
+        <thead >
         <tr>
-<!--            <th>#</th>-->
-            <th>Nom</th>
-<!--            <th>Description</th>-->
-            <th></th>
-            <th></th>
-            <th></th>
+            <th class="p-3 mb-2 bg-dark text-white text-success">#</th>
+            <th class="p-3 mb-2 bg-dark text-white text-success">Nom</th>
+            <th class="p-3 mb-2 bg-dark text-white text-success">Ingredients</th>
+            <th class="p-3 mb-2 bg-dark text-white text-success">Description</th>
+            <th class="p-3 mb-2 bg-dark text-white text-success">Catégorie</th>
+            <th class="p-3 mb-2 bg-dark text-white text-success"></th>
+            <th class="p-3 mb-2 bg-dark text-white text-success"></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="r : ${recipes}">
-<!--            <td th:text="${r.getId()}"></td>-->
-            <td th:text="${r.getName()}"></td>
-<!--            <td th:text="${r.getIngredients()}"></td>-->
-<!--            <td th:text="${r.getInstructions()}"></td>-->
-<!--            <td th:text="${r.getCategory()}"></td>-->
-            <td><a >Détail</a></td>
-            <td><a th:href="@{/recipe/add}">Ajouter</a></td>
-            <td><a >Modifier</a></td>
-            <td><a>Supprimer</a></td>
+            <td class="p-3 mb-2 bg-black text-white" th:text="${r.getId()}"></td>
+            <td class="p-3 mb-2 bg-black text-white" th:text="${r.getName()}"></td>
+            <td class="p-3 mb-2 bg-black text-white" th:text="${r.getIngredients()}"></td>
+           <td class="p-3 mb-2 bg-black text-white" th:text="${r.getInstructions()}"></td>
+            <td class="p-3 mb-2 bg-black text-white" th:text="${r.getCategory()}">
+            <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/recipe/add}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter</a></button></td>
+            <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/recipe/update/{id}(id=${r.getId()})}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Modifier</a></button></td>
+            <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/recipe/delete/{id}(id=${r.getId()})}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Supprimer</a></button></td>
         </tr>
         </tbody>
     </table>

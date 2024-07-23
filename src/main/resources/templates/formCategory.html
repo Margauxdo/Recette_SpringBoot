@@ -6,23 +6,31 @@
     <span th:replace="~{homePage::bootstrapAndCssImports}"></span>
 
 </head>
-<body>
+<body class="p-3 mb-2 bg-black text-white">
 <header>
     <span th:replace="~{homePage::header}"></span>
+    <div class="text-success">
+        <hr>
+    </div>
+    <a th:href="@{/}" class="mt-3 mb-3 d-flex justify-content-end text-uppercase fw-medium text-warning ">Homepage</a>
+
+    <div class="text-success">
+        <hr>
+    </div>
 
 </header>
 <main>
     <form th:action="@{/category/add}" method="post" th:object="${category}">
 
 
-            <legend>Ajouter une catégorie</legend>
+            <legend class="text-danger mb-5">Ajouter une catégorie</legend>
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label fst-italic">Name</label>
                 <input type="text" id="name" class="form-control" name="name" th:field="*{name}">
                 <span th:if="${#fields.hasErrors()}" th:errors="*{name}"></span>
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
+                <label for="description" class="form-label fst-italic">Description</label>
                 <input type="text" id="description" class="form-control" name="description" th:field="*{description}">
                 <span th:if="${#fields.hasErrors()}" th:errors="*{description}"></span>
             </div>
@@ -30,7 +38,7 @@
 
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-danger opacity-75 mb-5 mt-5 d-flex justify-content-end">Soumettre</button>
 
     </form>
 </main>

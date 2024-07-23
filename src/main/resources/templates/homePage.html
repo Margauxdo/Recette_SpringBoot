@@ -8,15 +8,20 @@
         <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
     </th:block>
 </head>
-<body>
+<body class="p-3 mb-2 bg-black text-white">
 <th:block th:fragment="header">
-    <h1>En quête vers une nouvelle cuisine || RecipeLand !!</h1>
-    <nav>
-        <a th:href="@{/}">Homepage</a>
-        <a th:href="@{/recipe/list}">Les recettes</a>
-        <a th:href="@{/category/list}">Les catégories</a>
+    <h1 class="text-center mt-4 mb-5 text-warning ">En quête vers une nouvelle cuisine || RecipeLand !!</h1>
+    <hr class="border border-warning border-2 opacity-25">
+    <hr class="border border-warning border-2 opacity-25">
+    <nav class="d-flex justify-content-center grid gap-3 mt-5 mb-5">
+
+        <button class="btn btn btn-light p-2 g-col-6 "><a th:href="@{/recipe/list}" class="link-underline-light text-primary-emphasis fw-medium text-uppercase">Les recettes</a></button>
+        <button class="btn btn btn-light p-2 g-col-6 "><a th:href="@{/category/list}" class="link-underline-light text-primary-emphasis fw-medium text-uppercase">Les catégories</a></button>
     </nav>
 </th:block>
+<div class="text-success">
+    <hr>
+</div>
 
 
 </body>

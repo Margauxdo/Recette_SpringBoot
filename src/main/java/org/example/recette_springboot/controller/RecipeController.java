@@ -4,13 +4,12 @@ package org.example.recette_springboot.controller;
 import jakarta.validation.Valid;
 import org.example.recette_springboot.model.Recipe;
 import org.example.recette_springboot.service.IRecipeService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -43,6 +42,29 @@ public class RecipeController {
             recipeService.saveRecipe(recipe);
             return "redirect:/recipe/list";
         }
+    }
+    @GetMapping("/delete/{id}")
+    public String deleteRecipe(@PathVariable int id) {
+        recipeService.deleteRecipeById(id);
+        return "redirect:/recipe/list";
+    }
+    @GetMapping("/update/{id}")
+    public String updateRecipe(@PathVariable int id, Model model) {
+        Recipe recipe = recipeService.getRecipeById(id);
+        model.addAttribute("recipe", recipe);
+        return "formRecipe";
+    }
+    @PostMapping("/update/{id}")
+    public String updateRecipe(@ModelAttribute("recipe") Recipe recipe ) {
+        recipeService.updateRecipe(recipe);
+        return "redirect:/recipe/list";
+    }
+    @GetMapping("/pb")
+    public String pb(){
+        if (true) {
+            throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT);
+        }
+        return "redirect:/recipe/list";
     }
 
 }

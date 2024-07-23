@@ -3,10 +3,12 @@ package org.example.recette_springboot.controller;
 import jakarta.validation.Valid;
 import org.example.recette_springboot.model.Category;
 import org.example.recette_springboot.service.ICategoryService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -53,6 +55,13 @@ public class CategoryController {
     @PostMapping("/update/{id}")
     public String updateCategory(@ModelAttribute("category") Category category) {
         categoryService.updateCategory(category);
+        return "redirect:/category/list";
+    }
+    @GetMapping("/pb")
+    public String pb(){
+        if (true) {
+            throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT);
+        }
         return "redirect:/category/list";
     }
 }
