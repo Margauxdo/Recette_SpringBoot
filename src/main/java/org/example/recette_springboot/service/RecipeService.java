@@ -2,12 +2,14 @@ package org.example.recette_springboot.service;
 
 import org.example.recette_springboot.model.Category;
 import org.example.recette_springboot.model.Recipe;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class RecipeService implements IRecipeService {
 
     private static int count = 0;

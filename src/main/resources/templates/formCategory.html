@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add category</title>
+    <span th:replace="~{homePage::bootstrapAndCssImports}"></span>
+
+</head>
+<body>
+<header>
+    <span th:replace="~{homePage::header}"></span>
+
+</header>
+<main>
+    <form th:action="@{/addcategory}" method="post" th:object="${category}">
+
+
+            <legend>Ajouter une catégorie</legend>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="form-control" name="name" th:field="*{name}">
+                <span th:if="${#fields.hasErrors()}" th:errors="*{name}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" id="description" class="form-control" name="description" th:field="*{description}">
+                <span th:if="${#fields.hasErrors()}" th:errors="*{description}"></span>
+            </div>
+
+
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</main>
+
+</body>
+</html>
