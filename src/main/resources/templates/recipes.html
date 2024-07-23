@@ -12,22 +12,32 @@
 
 </header>
 <main>
-    <ul class="list-group" th:if="${!recipes.isEmpty()}">
-        <li class="list-group-item disabled" aria-disabled="true" th:each="r:${recipes}">
-            <span th:text="${r.getId()}"></span>
-            <span th:text="${r.getName()}"></span>
-            <span th:text="${r.getIngredients()}"></span>
-            <span th:text="${r.getInstructions()}"></span>
-            <span th:text="${r.getCategory().name}"></span>
-            <div>
-                <a>Detail</a>
-                <a>Ajouter</a>
-                <a>Modifier</a>
-                <a>Supprimer</a>
-            </div>
-        </li>
 
-    </ul>
+    <table class="table table-striped" th:if="${!recipes.isEmpty()}">
+        <thead>
+        <tr>
+<!--            <th>#</th>-->
+            <th>Nom</th>
+<!--            <th>Description</th>-->
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r : ${recipes}">
+<!--            <td th:text="${r.getId()}"></td>-->
+            <td th:text="${r.getName()}"></td>
+<!--            <td th:text="${r.getIngredients()}"></td>-->
+<!--            <td th:text="${r.getInstructions()}"></td>-->
+<!--            <td th:text="${r.getCategory()}"></td>-->
+            <td><a >Détail</a></td>
+            <td><a th:href="@{/recipe/add}">Ajouter</a></td>
+            <td><a >Modifier</a></td>
+            <td><a>Supprimer</a></td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 
 </body>
