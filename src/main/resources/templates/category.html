@@ -28,9 +28,9 @@
       <td th:text="${c.getId()}"></td>
       <td th:text="${c.getName()}"></td>
       <td th:text="${c.getDescription()}"></td>
-      <td><a th:href="@{/addcategory}">Ajouter</a></td>
-      <td><a th:href="@{/updatecategory/{id}(id=${c.getId()})}">Modifier</a></td>
-      <td><a th:href="@{/deletecategory/{id}(id=${c.getId()})}">Supprimer</a></td>
+      <td><a th:href="@{/category/add}">Ajouter</a></td>
+      <td><a th:href="@{/category/update/{id}(id=${c.getId()})}">Modifier</a></td>
+      <td><a th:href="@{/category/delete/{id}(id=${c.getId()})}">Supprimer</a></td>
     </tr>
     </tbody>
   </table>

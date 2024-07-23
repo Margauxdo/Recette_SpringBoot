@@ -13,7 +13,7 @@ import java.util.Map;
 public class CategoryService implements ICategoryService {
 
     private static int count = 0;
-    private final Map<String, Category> categories;
+    private final Map<Integer, Category> categories;
 
     public CategoryService() {
         categories = new HashMap<>();
@@ -38,33 +38,31 @@ public class CategoryService implements ICategoryService {
 
 
 
-        categories.put("fast-food", category1);
-        categories.put("vegan", category2);
-        categories.put("italien", category3);
+        categories.put(count++, category1);
+        categories.put(count++, category2);
+        categories.put(count++, category3);
     }
     public List<Category> getALLCategories() {
         return categories.values().stream().toList();
     }
-    public Category getCategoryByName(String name) {
-        return categories.values().stream().filter(c -> c.getName().contains(name.toUpperCase())).findFirst().orElse(null);
-    }
+    //public Category getCategoryByName(String name) {
+       // return categories.values().stream().filter(c -> c.getName().contains(name.toUpperCase())).findFirst().orElse(null);
+    //}
     public Category getCategoryById(int id) {
         return categories.values().stream().filter(c -> c.getId() == id).findFirst().orElse(null);
     }
     public Category saveCategory(Category category) {
         category.setId(++count);
-        categories.put(String.valueOf(category.getId()),category);
+        categories.put(category.getId(), category);
         return category;
     }
     public void deleteCategoryById(int id) {
         categories.remove(id);
     }
     public Category updateCategory(Category category) {
-        getCategoryByName(category.getName()).setId(category.getId());
+        getCategoryById(category.getId()).setId(category.getId());
         getCategoryById(category.getId()).setName(category.getName());
         getCategoryById(category.getId()).setDescription(category.getDescription());
-
-
 
         return category;
     }

@@ -12,10 +12,12 @@ import java.util.Map;
 @Service
 public class RecipeService implements IRecipeService {
 
+
     private static int count = 0;
     private final Map<String, Recipe> recipes;
+    private final CategoryService categoryService;
 
-    public RecipeService() {
+    public RecipeService(CategoryService categoryService) {
         recipes = new HashMap<>();
 
         Recipe recipe1 = Recipe.builder()
@@ -23,7 +25,7 @@ public class RecipeService implements IRecipeService {
                 .name("Fondue de poireaux")
                 .ingredients(Collections.singletonList("poireux, creme,moutarde"))
                 .instructions("bien cuire les poireaux, les couper....")
-                .category(Category.builder().build())
+                .category(categoryService.getALLCategories().get(0))
                 .build();
 
         Recipe recipe2 = Recipe.builder()
@@ -31,7 +33,7 @@ public class RecipeService implements IRecipeService {
                 .name("salade de tomate")
                 .ingredients(Collections.singletonList("tomate,ail,mozzarella,moutarde"))
                 .instructions("couper les tomates....")
-                .category(Category.builder().build())
+                .category(categoryService.getALLCategories().get(1))
                 .build();
 
         Recipe recipe3 = Recipe.builder()
@@ -39,12 +41,13 @@ public class RecipeService implements IRecipeService {
                 .name("burger")
                 .ingredients(Collections.singletonList("pain,salade,steack,cheddar"))
                 .instructions("couper les oignons,cuire le steack,faire chauffer....")
-                .category(Category.builder().build())
+                .category(categoryService.getALLCategories().get(2))
                 .build();
 
         recipes.put("Fondue de poireaux", recipe1);
         recipes.put("salade de tomate", recipe2);
         recipes.put("burger", recipe3);
+        this.categoryService = categoryService;
     }
     public List<Recipe> getALLRecipes() {
         return recipes.values().stream().toList();
