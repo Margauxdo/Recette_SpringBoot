@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+    <span th:replace="~{homePage::bootstrapAndCssImports}"></span>
+
+</head>
+<body>
+<header>
+    <span th:replace="~{homePage::header}"></span>
+
+</header>
+<main>
+    <ul class="list-group" th:if="${!recipes.isEmpty()}">
+        <li class="list-group-item disabled" aria-disabled="true" th:each="r:${recipes}">
+            <span th:text="${r.getId()}"></span>
+            <span th:text="${r.getName()}"></span>
+            <span th:text="${r.getIngredients()}"></span>
+            <span th:text="${r.getInstructions()}"></span>
+            <span th:text="${r.getCategory().name}"></span>
+            <div>
+                <a>Detail</a>
+                <a>Ajouter</a>
+                <a>Modifier</a>
+                <a>Supprimer</a>
+            </div>
+        </li>
+
+    </ul>
+</main>
+
+</body>
+</html>
