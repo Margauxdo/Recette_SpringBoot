@@ -38,9 +38,9 @@ public class CategoryService implements ICategoryService {
 
 
 
-        categories.put(count++, category1);
-        categories.put(count++, category2);
-        categories.put(count++, category3);
+        categories.put(category1.getId(), category1);
+        categories.put(category2.getId(), category2);
+        categories.put(category3.getId(), category3);
     }
     public List<Category> getALLCategories() {
         return categories.values().stream().toList();

@@ -9,7 +9,6 @@ public interface IRecipeService {
 
     List<Recipe> getALLRecipes();
 
-    Recipe getRecipeByName(String name);
 
     Recipe getRecipeById(int id);
 

@@ -20,7 +20,7 @@
 
 </header>
 <main>
-    <form th:action="@{/category/add}" method="post" th:object="${category}">
+    <form th:action="${category.getId()} == 0 ? @{/category/add} : @{/category/update/{id}(id=${category.getId()})}" method="post" th:object="${category}">
 
 
             <legend class="text-danger mb-5">Ajouter une catégorie</legend>

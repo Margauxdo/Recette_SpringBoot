@@ -23,7 +23,7 @@ public class Recipe {
     private String name;
     @NotNull(message = "the field must be filled in")
     @NotBlank
-    List<String> ingredients;
+    private String ingredients;
     @NotNull(message = "the field must be filled in")
     @NotBlank
     private String instructions;

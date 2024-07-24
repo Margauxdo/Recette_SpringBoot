@@ -23,10 +23,11 @@
 
 
 
-    <form th:action="@{/recipe/add}" method="post" th:object="${recipe}">
+    <form th:action="${recipe.getId()} == 0 ? @{/recipe/add} : @{/recipe/update/{id}(id=${recipe.getId()})}" method="post" th:object="${recipe}">
 
 
         <legend class="text-danger mb-5">Ajouter une recette</legend>
+        <input th:field="*{id}" hidden>
         <div class="mb-3">
             <label for="name" class="form-label fst-italic">Name</label>
             <input type="text" id="name" class="form-control" name="name" th:field="*{name}">
@@ -49,6 +50,7 @@
             <label for="category" class="form-label fst-italic">Category</label>
             <select id="category" class="form-control" name="category.id" th:field="*{category.id}">
                 <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+
             </select>
             <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
         </div>
