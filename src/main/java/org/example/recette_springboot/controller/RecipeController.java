@@ -35,9 +35,11 @@ public class RecipeController {
         return "formRecipe";
     }
     @PostMapping("/add")
-    public String addRecipe(@Valid  @ModelAttribute("recipe") Recipe recipe, BindingResult bindingResult) {
+    public String addRecipe(@Valid  @ModelAttribute("recipe") Recipe recipe, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
+            model.addAttribute("categories", recipeService.getAllCategories());
+
             return "formRecipe";
         }else {
             recipeService.saveRecipe(recipe);
@@ -53,6 +55,8 @@ public class RecipeController {
     public String updateRecipe(@PathVariable int id, Model model) {
         Recipe recipe = recipeService.getRecipeById(id);
         model.addAttribute("recipe", recipe);
+        model.addAttribute("categories", recipeService.getAllCategories());
+
         return "formRecipe";
     }
     @PostMapping("/update/{id}")

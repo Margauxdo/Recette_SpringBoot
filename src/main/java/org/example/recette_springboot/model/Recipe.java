@@ -18,7 +18,7 @@ public class Recipe {
 
     private int id;
     @NotNull(message = "the field must be filled in")
-    @Size(min = 3,max= 15 )
+    @Size(min = 10,max= 35 )
     @NotBlank
     private String name;
     @NotNull(message = "the field must be filled in")

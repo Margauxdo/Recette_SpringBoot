@@ -17,7 +17,7 @@ public class Category {
     private int id;
     @NotNull(message = "the field must be filled in")
     @NotBlank
-    @Size(min =8,max = 25)
+    @Size(min =10,max = 25)
     private String name;
     @NotNull(message = "the field must be filled in")
     @NotBlank
