@@ -78,5 +78,9 @@ public class RecipeService implements IRecipeService {
 
         return recipe;
     }
+    public List<Category> getAllCategories() {
+        return categoryService.getALLCategories();
+
+    }
 }
 

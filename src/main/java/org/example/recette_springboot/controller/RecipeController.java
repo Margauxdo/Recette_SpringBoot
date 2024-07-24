@@ -31,6 +31,7 @@ public class RecipeController {
     @GetMapping("/add")
     public String addRecipe(Model model) {
         model.addAttribute("recipe", new Recipe());
+        model.addAttribute("categories", recipeService.getAllCategories());
         return "formRecipe";
     }
     @PostMapping("/add")

@@ -36,12 +36,13 @@
       <td class="p-3 mb-2 bg-black text-white" th:text="${c.getId()}"></td>
       <td class="p-3 mb-2 bg-black text-white" th:text="${c.getName()}"></td>
       <td class="p-3 mb-2 bg-black text-white" th:text="${c.getDescription()}"></td>
-      <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/category/add}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter</a></button></td>
       <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/category/update/{id}(id=${c.getId()})}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Modifier</a></button></td>
       <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/category/delete/{id}(id=${c.getId()})}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Supprimer</a></button></td>
     </tr>
     </tbody>
   </table>
+  <span class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/category/add}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter</a></button></span>
+
 
 </main>
 

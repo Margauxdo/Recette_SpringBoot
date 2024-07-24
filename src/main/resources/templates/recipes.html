@@ -39,12 +39,13 @@
             <td class="p-3 mb-2 bg-black text-white" th:text="${r.getIngredients()}"></td>
            <td class="p-3 mb-2 bg-black text-white" th:text="${r.getInstructions()}"></td>
             <td class="p-3 mb-2 bg-black text-white" th:text="${r.getCategory()}">
-            <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/recipe/add}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter</a></button></td>
             <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/recipe/update/{id}(id=${r.getId()})}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Modifier</a></button></td>
             <td class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/recipe/delete/{id}(id=${r.getId()})}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Supprimer</a></button></td>
         </tr>
         </tbody>
     </table>
+    <span class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/recipe/add}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter</a></button></span>
+
 </main>
 
 </body>

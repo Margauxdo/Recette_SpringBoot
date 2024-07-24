@@ -45,9 +45,7 @@ public class CategoryService implements ICategoryService {
     public List<Category> getALLCategories() {
         return categories.values().stream().toList();
     }
-    //public Category getCategoryByName(String name) {
-       // return categories.values().stream().filter(c -> c.getName().contains(name.toUpperCase())).findFirst().orElse(null);
-    //}
+
     public Category getCategoryById(int id) {
         return categories.values().stream().filter(c -> c.getId() == id).findFirst().orElse(null);
     }
